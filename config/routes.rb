@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  resources :textnotes
   resources :usuarios
-# For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'application#login'
+  root 'usuarios#index'
 
 end

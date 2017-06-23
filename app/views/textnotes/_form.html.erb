@@ -1,0 +1,27 @@
+<%= form_with(model: textnote, local: true) do |form| %>
+  <% if textnote.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(textnote.errors.count, "error") %> prohibited this textnote from being saved:</h2>
+
+      <ul>
+      <% textnote.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :textnote_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :usuario_id %>
+    <%= form.number_field :usuario_id, id: :textnote_usuario_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
