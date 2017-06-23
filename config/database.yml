@@ -82,4 +82,4 @@ production:
   <<: *default
   database: inesPractice_production
   username: jfcaballero
-  password: <%= ENV['k4B4113R0'] %>
+  password: <%= ENV['test01'] %>
