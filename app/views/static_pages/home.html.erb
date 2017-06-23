@@ -1,8 +1,10 @@
 <% provide(:title, "Home") %>
-
+<div class="center jumbotron" >
 <img src="https://ines.es/wp-content/uploads/2016/06/logo.png" />
 <h1>ines - Ingenieros Consultores</h1>
 <h2><%= yield(:title) %><p align="justify"></h2>
 INES forma parte activa de la comunidad profesional de Consultores, Ingenieros y Arquitectos. Es miembro de Colegios y Asociaciones Nacionales e Internacionales. INES mantiene estrechas relaciones con la Universidad y con Centros de Investigación. INES forma parte activa en organismos españoles y europeos de referencia dentro de la investigación, tales como la Unión Internacional de Chemins de Fer (UIC), Association Mondiale de la Route (AIPCR) ó Asociación Científico Técnica del Hormigón (ACHE).
 </p>
+  <%= link_to "LOGIN", login_path, class: "btn btn-lg btn-primary" %>
 
+</div>
