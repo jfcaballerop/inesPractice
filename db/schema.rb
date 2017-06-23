@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20170623165012) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "userid", limit: 50
+    t.string "passwd", limit: 50
+    t.string "nombre", limit: 100
+    t.string "apellido1", limit: 100
+    t.string "apellido2", limit: 100
+    t.string "email", limit: 200
+    t.string "telefono1", limit: 20
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string "login"
     t.string "passwd"
