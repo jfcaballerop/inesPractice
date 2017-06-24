@@ -6,7 +6,6 @@
   <thead>
     <tr>
       <th>Login</th>
-      <th>Passwd</th>
       <th>Name</th>
       <th colspan="3"></th>
     </tr>
@@ -16,7 +15,6 @@
     <% @usuarios.each do |usuario| %>
       <tr>
         <td><%= usuario.login %></td>
-        <td><%= usuario.passwd %></td>
         <td><%= usuario.name %></td>
         <td><%= link_to 'Show', usuario %></td>
         <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>

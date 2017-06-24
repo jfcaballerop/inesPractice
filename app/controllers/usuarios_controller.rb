@@ -1,6 +1,5 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
-
   # GET /usuarios
   # GET /usuarios.json
   def index
@@ -10,11 +9,13 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
+    @usuario = Usuario.find(params[:id])
   end
 
   # GET /usuarios/new
   def new
     @usuario = Usuario.new
+
   end
 
   # GET /usuarios/1/edit
@@ -62,13 +63,14 @@ class UsuariosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_usuario
-      @usuario = Usuario.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def usuario_params
-      params.require(:usuario).permit(:login, :passwd, :name)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_usuario
+    @usuario = Usuario.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def usuario_params
+    params.require(:usuario).permit(:login, :name, :password, :password_confirmation)
+  end
 end
