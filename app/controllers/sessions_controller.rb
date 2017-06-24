@@ -1,26 +1,20 @@
 class SessionsController < ApplicationController
-
+  layout "home"
   def new
   end
 
   def create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      if user.activated?
-        log_in user
-        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-        redirect_back_or user
-      else
-        message  = "Account not activated. "
-        message += "Check your email for the activation link."
-        flash[:warning] = message
-        redirect_to root_url
-      end
-    else
+    usuario = Usuario.find_by(login: params[:session][:login].downcase)
+    if usuario && usuario.authenticate(params[:session][:password])
+      # Log the usuario in and redirect to the usuario's show page.
+     log_in usuario
+     redirect_to usuario
+     else
+      # Create an error message.
       flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
     end
-  end
+ end
 
   def destroy
     log_out if logged_in?

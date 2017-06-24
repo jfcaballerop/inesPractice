@@ -1,4 +1,5 @@
 class UsuariosController < ApplicationController
+  layout :resolve_layout
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
   # GET /usuarios
   # GET /usuarios.json
@@ -72,5 +73,14 @@ class UsuariosController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def usuario_params
     params.require(:usuario).permit(:login, :name, :password, :password_confirmation)
+  end
+
+  def resolve_layout
+    case action_name
+    when "new"
+      "home"
+    else
+    "main"
+    end
   end
 end
