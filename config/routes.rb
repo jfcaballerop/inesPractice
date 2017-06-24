@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
 
   get  '/signup',  to: 'usuarios#new'
+  post  '/signup',  to: 'usuarios#create'
 
 end
