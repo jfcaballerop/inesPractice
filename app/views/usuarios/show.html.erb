@@ -27,6 +27,8 @@
 	<div class="col-md-8">
 		<% if @usuario.textnotes.any? %>
 		<h3>Notas del usuario (<%= @usuario.textnotes.count %>)</h3>
+		<%= link_to "Nueva Nota ", new_textnote_path(:usuario_id => @usuario.id) %>
+
 		<ol class="textnotes">
 			<%= render @textnotes %>
 		</ol>
@@ -36,5 +38,5 @@
 
 </div>
 
-<%= link_to '< Atras', usuarios_path %> |
+<%= link_to '< Login', login_path %> |
 <%= link_to 'Editar Usuario', edit_usuario_path(@usuario) %>

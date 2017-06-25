@@ -4,4 +4,6 @@
   <span class="timestamp">
     Creada hace <%= time_ago_in_words(textnote.created_at) %>.
   </span>
+  <span><%= link_to 'Editar', edit_textnote_path(textnote.id) %></span>
+  <span><%= link_to 'Borrar', textnote, method: :delete, data: { confirm: '¿Seguro?' } %>
 </li>

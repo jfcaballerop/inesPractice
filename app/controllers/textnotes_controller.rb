@@ -14,7 +14,8 @@ class TextnotesController < ApplicationController
 
   # GET /textnotes/new
   def new
-    @textnote = Textnote.new
+    @textnote = Textnote.new(:usuario_id=>params[:usuario_id])
+    
   end
 
   # GET /textnotes/1/edit
@@ -28,11 +29,11 @@ class TextnotesController < ApplicationController
 
     respond_to do |format|
       if @textnote.save
-        format.html { redirect_to @textnote, notice: 'Textnote was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Textnote was successfully created.' }
         format.json { render :show, status: :created, location: @textnote }
       else
         format.html { render :new }
-        format.json { render json: @textnote.errors, status: :unprocessable_entity }
+        format.json { render json: current_user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -42,11 +43,11 @@ class TextnotesController < ApplicationController
   def update
     respond_to do |format|
       if @textnote.update(textnote_params)
-        format.html { redirect_to @textnote, notice: 'Textnote was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Textnote was successfully updated.' }
         format.json { render :show, status: :ok, location: @textnote }
       else
         format.html { render :edit }
-        format.json { render json: @textnote.errors, status: :unprocessable_entity }
+        format.json { render json: current_user.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -56,7 +57,7 @@ class TextnotesController < ApplicationController
   def destroy
     @textnote.destroy
     respond_to do |format|
-      format.html { redirect_to textnotes_url, notice: 'Textnote was successfully destroyed.' }
+      format.html { redirect_to current_user, notice: 'Textnote was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

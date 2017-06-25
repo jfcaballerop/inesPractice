@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+puts "********Seeding Data Start************"
+
+admin = Usuario.create(:login => 'admin', :name => 'Admin', 
+       :password => 'adminines1', 
+       :password_confirmation => 'adminines1')
+
+if admin.errors.blank?
+    puts "***User #{admin.name} --> #{admin.login} created ***"
+ 
+else
+    puts "admin user failed to create due to below reasons:"
+    admin.errors.each do |x, y|
+       puts"#{x} #{y}" # x will be the field name and y will be the error on it
+     end
+end
