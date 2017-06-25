@@ -11,6 +11,8 @@ class UsuariosController < ApplicationController
   # GET /usuarios/1.json
   def show
     @usuario = Usuario.find(params[:id])
+    @textnotes = @usuario.textnotes.paginate(page: params[:page])
+
   end
 
   # GET /usuarios/new

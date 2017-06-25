@@ -1,0 +1,7 @@
+<li id="textnote-<%= textnote.id %>">
+  <span class="usuario"><%= link_to textnote.usuario.name, textnote.usuario %></span>
+  <span class="content"><%= textnote.content %></span>
+  <span class="timestamp">
+    Creada hace <%= time_ago_in_words(textnote.created_at) %>.
+  </span>
+</li>

@@ -23,6 +23,18 @@
 		<%= @usuario.name %>
 	</p>
 </div>
+<div class="row">
+	<div class="col-md-8">
+		<% if @usuario.textnotes.any? %>
+		<h3>Notas del usuario (<%= @usuario.textnotes.count %>)</h3>
+		<ol class="textnotes">
+			<%= render @textnotes %>
+		</ol>
+		<%= will_paginate @textnotes %>
+		<% end %>
+	</div>
 
-<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
-<%= link_to 'Back', usuarios_path %>
+</div>
+
+<%= link_to '< Atras', usuarios_path %> |
+<%= link_to 'Editar Usuario', edit_usuario_path(@usuario) %>
